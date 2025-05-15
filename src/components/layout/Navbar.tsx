@@ -34,11 +34,14 @@ const Navbar = () => {
                 <Link to="/" className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>
                   Accueil
                 </Link>
-                <Link to="/about" className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>
-                  À propos
+                <Link to="/offers" className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>
+                  Offres
                 </Link>
                 <Link to="/how-it-works" className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>
                   Comment ça marche
+                </Link>
+                <Link to="/blog" className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>
+                  Blog
                 </Link>
                 <Link to="/contact" className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>
                   Contact
@@ -72,11 +75,14 @@ const Navbar = () => {
               <Link to="/" className="text-sm font-medium transition-colors hover:text-lime">
                 Accueil
               </Link>
-              <Link to="/about" className="text-sm font-medium transition-colors hover:text-lime">
-                À propos
+              <Link to="/offers" className="text-sm font-medium transition-colors hover:text-lime">
+                Offres
               </Link>
               <Link to="/how-it-works" className="text-sm font-medium transition-colors hover:text-lime">
                 Comment ça marche
+              </Link>
+              <Link to="/blog" className="text-sm font-medium transition-colors hover:text-lime">
+                Blog
               </Link>
               <Link to="/contact" className="text-sm font-medium transition-colors hover:text-lime">
                 Contact
