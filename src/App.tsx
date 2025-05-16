@@ -16,6 +16,7 @@ import Blog from "./pages/Blog";
 import Offers from "./pages/Offers";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/layout/Layout";
+import LoadingPage from "./components/LoadingPage";
 
 const queryClient = new QueryClient();
 
@@ -26,8 +27,11 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          {/* Loading page as the default route */}
+          <Route path="/" element={<LoadingPage />} />
+          
           <Route element={<Layout />}>
-            <Route path="/" element={<Index />} />
+            <Route path="/main" element={<Index />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />

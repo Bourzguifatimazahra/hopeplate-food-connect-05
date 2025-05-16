@@ -1,9 +1,8 @@
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const Navbar = () => {
@@ -14,7 +13,7 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b bg-background/80 backdrop-blur-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/main" className="flex items-center gap-2">
           <div className="bg-lime rounded-full w-8 h-8 flex items-center justify-center">
             <span className="font-bold text-black">H</span>
           </div>
@@ -31,7 +30,7 @@ const Navbar = () => {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <nav className="flex flex-col gap-4 mt-8">
-                <Link to="/" className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>
+                <Link to="/main" className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>
                   Accueil
                 </Link>
                 <Link to="/offers" className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>
@@ -72,7 +71,7 @@ const Navbar = () => {
         ) : (
           <div className="flex items-center gap-10">
             <nav className="flex items-center gap-6">
-              <Link to="/" className="text-sm font-medium transition-colors hover:text-lime">
+              <Link to="/main" className="text-sm font-medium transition-colors hover:text-lime">
                 Accueil
               </Link>
               <Link to="/offers" className="text-sm font-medium transition-colors hover:text-lime">
