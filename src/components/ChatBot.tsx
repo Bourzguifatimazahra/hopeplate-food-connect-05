@@ -51,6 +51,8 @@ const ChatBot = () => {
         botResponse = "Vous pouvez nous contacter via la page 'Contact' ou par email à support@hopeplate.com";
       } else if (lowerMessage.includes("association") || lowerMessage.includes("charité")) {
         botResponse = "Les associations caritatives peuvent s'inscrire sur notre plateforme pour accéder aux dons alimentaires.";
+      } else if (lowerMessage.includes("prix") || lowerMessage.includes("dh") || lowerMessage.includes("dirham")) {
+        botResponse = "Tous nos prix sont affichés en Dirhams marocains (DH). Vous pouvez voir les prix réduits sur chaque offre.";
       } else {
         botResponse = "Je n'ai pas complètement compris votre demande. Pourriez-vous reformuler ou me poser une autre question ?";
       }

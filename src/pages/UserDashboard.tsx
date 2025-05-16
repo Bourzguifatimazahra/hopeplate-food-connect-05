@@ -9,8 +9,8 @@ const mockOffers = [
     id: 1,
     title: "Menu complet italien",
     restaurant: "Pasta Bella",
-    originalPrice: 24.90,
-    discountedPrice: 12.45,
+    originalPrice: 249,
+    discountedPrice: 125,
     image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1760&q=80",
     distance: "1.2 km",
     rating: 4.8,
@@ -19,8 +19,8 @@ const mockOffers = [
     id: 2,
     title: "Panier surprise asiatique",
     restaurant: "Sushi Fusion",
-    originalPrice: 19.90,
-    discountedPrice: 8.95,
+    originalPrice: 199,
+    discountedPrice: 89,
     image: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1760&q=80",
     distance: "2.5 km",
     rating: 4.6,
@@ -29,8 +29,8 @@ const mockOffers = [
     id: 3,
     title: "Box déjeuner healthy",
     restaurant: "Green Garden",
-    originalPrice: 15.90,
-    discountedPrice: 7.95,
+    originalPrice: 159,
+    discountedPrice: 79,
     image: "https://images.unsplash.com/photo-1546069901-d5aab0eef9cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1760&q=80",
     distance: "0.8 km",
     rating: 4.7,
@@ -42,7 +42,7 @@ const mockOrders = [
     id: 1,
     title: "Menu complet italien",
     restaurant: "Pasta Bella",
-    price: 12.45,
+    price: 125,
     date: "2023-06-15",
     status: "Terminé",
     rating: 5,
@@ -51,7 +51,7 @@ const mockOrders = [
     id: 2,
     title: "Panier surprise asiatique",
     restaurant: "Sushi Fusion",
-    price: 8.95,
+    price: 89,
     date: "2023-06-10",
     status: "Terminé",
     rating: 4,
@@ -128,10 +128,10 @@ const UserDashboard = () => {
                     <div className="flex justify-between items-center">
                       <div>
                         <span className="text-sm line-through text-muted-foreground">
-                          {offer.originalPrice.toFixed(2)}€
+                          {offer.originalPrice} DH
                         </span>
                         <span className="text-xl font-bold ml-2">
-                          {offer.discountedPrice.toFixed(2)}€
+                          {offer.discountedPrice} DH
                         </span>
                       </div>
                       <Button 
@@ -160,7 +160,7 @@ const UserDashboard = () => {
                       <p className="text-sm mt-1">Date: {order.date}</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-bold">{order.price.toFixed(2)}€</p>
+                      <p className="font-bold">{order.price} DH</p>
                       <span className="inline-block px-2 py-1 mt-1 text-xs rounded bg-green-100 text-green-800">
                         {order.status}
                       </span>

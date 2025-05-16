@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -11,6 +11,8 @@ const SignInForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [userType, setUserType] = useState<"user" | "restaurant">("user");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,9 +21,16 @@ const SignInForm = () => {
     // Simulate API call
     setTimeout(() => {
       // This is where you would normally authenticate with a real backend
-      console.log("Sign in attempt:", { email });
+      console.log("Sign in attempt:", { email, userType });
       toast.success("Connexion réussie!");
       setIsLoading(false);
+      
+      // Redirect based on user type
+      if (userType === "user") {
+        navigate("/user-dashboard");
+      } else {
+        navigate("/restaurant-dashboard");
+      }
     }, 1500);
   };
 
@@ -35,6 +44,28 @@ const SignInForm = () => {
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="userType">Type de compte</Label>
+            <div className="flex space-x-2">
+              <Button
+                type="button"
+                variant={userType === "user" ? "default" : "outline"}
+                className={userType === "user" ? "bg-lime text-black" : ""}
+                onClick={() => setUserType("user")}
+              >
+                Utilisateur
+              </Button>
+              <Button
+                type="button"
+                variant={userType === "restaurant" ? "default" : "outline"}
+                className={userType === "restaurant" ? "bg-lime text-black" : ""}
+                onClick={() => setUserType("restaurant")}
+              >
+                Restaurant
+              </Button>
+            </div>
+          </div>
+          
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
             <Input
