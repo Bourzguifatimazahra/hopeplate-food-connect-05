@@ -1,10 +1,12 @@
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Search } from "lucide-react";
+import { Search, MapPin, Map as MapIcon } from "lucide-react";
+import Map from "@/components/Map";
 
 const blogPosts = [
   {
@@ -15,7 +17,8 @@ const blogPosts = [
     date: "15 mai 2025",
     author: "Sophie Martin",
     category: "Conseils",
-    readTime: "5 min"
+    readTime: "5 min",
+    location: "Casablanca"
   },
   {
     id: 2,
@@ -25,7 +28,8 @@ const blogPosts = [
     date: "2 mai 2025",
     author: "Thomas Dubois",
     category: "Témoignages",
-    readTime: "8 min"
+    readTime: "8 min",
+    location: "Rabat"
   },
   {
     id: 3,
@@ -35,7 +39,8 @@ const blogPosts = [
     date: "25 avril 2025",
     author: "Emma Leclerc",
     category: "Environnement",
-    readTime: "12 min"
+    readTime: "12 min",
+    location: "Marrakech"
   },
   {
     id: 4,
@@ -45,7 +50,8 @@ const blogPosts = [
     date: "18 avril 2025",
     author: "Lucas Bernard",
     category: "Économie",
-    readTime: "10 min"
+    readTime: "10 min",
+    location: "Agadir"
   },
   {
     id: 5,
@@ -55,7 +61,8 @@ const blogPosts = [
     date: "10 avril 2025",
     author: "Chloé Petit",
     category: "Recettes",
-    readTime: "7 min"
+    readTime: "7 min",
+    location: "Fès"
   },
   {
     id: 6,
@@ -65,8 +72,43 @@ const blogPosts = [
     date: "5 avril 2025",
     author: "Antoine Durand",
     category: "Technologie",
-    readTime: "6 min"
+    readTime: "6 min",
+    location: "Tanger"
   },
+];
+
+// Points d'intérêt pour la carte
+const pointsOfInterest = [
+  {
+    id: 1,
+    name: "Marché bio de Casablanca",
+    description: "Marché hebdomadaire avec produits frais et locaux",
+    location: [-7.6115, 33.5883]
+  },
+  {
+    id: 2,
+    name: "Restaurant La Sqala",
+    description: "Restaurant éco-responsable à Casablanca",
+    location: [-7.6167, 33.6056]
+  },
+  {
+    id: 3,
+    name: "Coopérative agricole d'Agadir",
+    description: "Produits frais directement des producteurs",
+    location: [-9.5982, 30.4278]
+  },
+  {
+    id: 4,
+    name: "Café Clock",
+    description: "Café-restaurant utilisant des ingrédients locaux",
+    location: [-5.0012, 34.0346]
+  },
+  {
+    id: 5,
+    name: "Jardin Bio Marrakech",
+    description: "Jardin communautaire et éducatif",
+    location: [-8.0100, 31.6295]
+  }
 ];
 
 const categories = ["Tous", "Conseils", "Témoignages", "Environnement", "Économie", "Recettes", "Technologie"];
@@ -74,10 +116,12 @@ const categories = ["Tous", "Conseils", "Témoignages", "Environnement", "Écono
 const Blog = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Tous");
+  const [showMap, setShowMap] = useState(false);
 
   const filteredPosts = blogPosts.filter(post => 
     (post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-     post.excerpt.toLowerCase().includes(searchQuery.toLowerCase())) && 
+     post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+     post.location.toLowerCase().includes(searchQuery.toLowerCase())) && 
     (selectedCategory === "Tous" || post.category === selectedCategory)
   );
 
@@ -91,29 +135,49 @@ const Blog = () => {
           </p>
         </div>
 
-        {/* Search and Filter */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
-          <div className="relative w-full md:max-w-xs">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 h-4 w-4" />
-            <Input
-              placeholder="Rechercher un article..."
-              className="pl-10"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
+        {/* Carte et filtres */}
+        <div className="mb-10">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+            <div className="relative w-full md:max-w-xs">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 h-4 w-4" />
+              <Input
+                placeholder="Rechercher un article..."
+                className="pl-10"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
+            <Button 
+              variant={showMap ? "default" : "outline"}
+              className={`${showMap ? "bg-lime text-black hover:bg-lime-hover" : ""}`}
+              onClick={() => setShowMap(!showMap)}
+            >
+              {showMap ? <MapIcon className="mr-2 h-4 w-4" /> : <MapPin className="mr-2 h-4 w-4" />}
+              {showMap ? "Masquer la carte" : "Afficher la carte"}
+            </Button>
+            <div className="flex flex-wrap gap-2">
+              {categories.map(category => (
+                <Badge 
+                  key={category}
+                  variant={selectedCategory === category ? "default" : "outline"}
+                  className={`cursor-pointer ${selectedCategory === category ? 'bg-lime text-black hover:bg-lime-hover' : ''}`}
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category}
+                </Badge>
+              ))}
+            </div>
           </div>
-          <div className="flex flex-wrap gap-2">
-            {categories.map(category => (
-              <Badge 
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                className={`cursor-pointer ${selectedCategory === category ? 'bg-lime text-black hover:bg-lime-hover' : ''}`}
-                onClick={() => setSelectedCategory(category)}
-              >
-                {category}
-              </Badge>
-            ))}
-          </div>
+          
+          {/* Carte interactive */}
+          {showMap && (
+            <div className="mb-8">
+              <Map className="h-[400px] w-full rounded-lg overflow-hidden" pointsOfInterest={pointsOfInterest} />
+              <p className="mt-2 text-sm text-gray-500 text-center">
+                Découvrez les points d'intérêt mentionnés dans nos articles
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Blog Posts Grid */}
@@ -142,10 +206,18 @@ const Blog = () => {
                       <span className="font-medium">{post.author}</span>
                       <span className="text-gray-500"> · {post.date}</span>
                     </div>
-                    <Button variant="link" className="text-lime p-0 hover:text-lime-hover">
-                      Lire plus
-                    </Button>
+                    <Link to={`/blog/${post.id}`}>
+                      <Button variant="link" className="text-lime p-0 hover:text-lime-hover">
+                        Lire plus
+                      </Button>
+                    </Link>
                   </div>
+                  {post.location && (
+                    <div className="mt-2 flex items-center text-xs text-gray-500">
+                      <MapPin className="h-3 w-3 mr-1" />
+                      {post.location}
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             ))

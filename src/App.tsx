@@ -13,6 +13,7 @@ import RestaurantDashboard from "./pages/RestaurantDashboard";
 import HowItWorks from "./pages/HowItWorks";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import Offers from "./pages/Offers";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/layout/Layout";
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/offers" element={<Offers />} />
             <Route path="/user-dashboard" element={<UserDashboard />} />
             <Route path="/restaurant-dashboard" element={<RestaurantDashboard />} />
