@@ -12,7 +12,20 @@ export const blogPosts: BlogPost[] = [
     author: "Sophie Martin",
     category: "Conseils",
     readTime: "5 min",
-    location: "Casablanca"
+    location: "Casablanca",
+    content: `
+      <h2>Économiser et réduire le gaspillage</h2>
+      <p>Le gaspillage alimentaire est un problème majeur dans nos sociétés modernes. Chaque année, des millions de tonnes de nourriture finissent à la poubelle alors qu'elles pourraient être consommées. Voici quelques astuces simples pour réduire votre propre gaspillage alimentaire à la maison.</p>
+      
+      <h3>Planifiez vos repas</h3>
+      <p>La première étape pour réduire le gaspillage est de planifier vos repas à l'avance. Faites une liste de courses en fonction des repas que vous allez préparer durant la semaine et tenez-vous-y lors de vos achats. Cela vous évitera d'acheter des produits dont vous n'avez pas réellement besoin.</p>
+      
+      <h3>Stockez correctement vos aliments</h3>
+      <p>Apprenez à ranger votre réfrigérateur et vos placards de manière optimale. Chaque aliment a sa place idéale pour une conservation maximale. Par exemple, les fruits et légumes se conservent mieux dans les bacs du bas du réfrigérateur, tandis que les produits laitiers peuvent être rangés sur les étagères du milieu.</p>
+      
+      <h3>Utilisez les restes</h3>
+      <p>Transformez vos restes en nouveaux repas créatifs. Un reste de poulet peut devenir un délicieux sandwich le lendemain, ou être ajouté à une salade. Les légumes un peu fanés peuvent être transformés en soupe ou en purée.</p>
+    `
   },
   {
     id: 2,
@@ -23,7 +36,20 @@ export const blogPosts: BlogPost[] = [
     author: "Thomas Dubois",
     category: "Témoignages",
     readTime: "8 min",
-    location: "Rabat"
+    location: "Rabat",
+    content: `
+      <h2>La restauration responsable</h2>
+      <p>De plus en plus de restaurants prennent conscience de l'impact environnemental de leurs activités et mettent en place des solutions innovantes pour réduire leur gaspillage alimentaire. Découvrez ces établissements qui font bouger les lignes.</p>
+      
+      <h3>Des menus flexibles et saisonniers</h3>
+      <p>Les restaurants les plus engagés proposent des menus qui s'adaptent aux produits disponibles et de saison. Cela leur permet de n'acheter que ce dont ils ont besoin et de valoriser l'intégralité des produits qu'ils utilisent.</p>
+      
+      <h3>La valorisation des déchets organiques</h3>
+      <p>Certains restaurants ont mis en place des systèmes de compostage pour leurs déchets organiques, créant ainsi un cercle vertueux où les déchets d'aujourd'hui deviennent les nutriments des cultures de demain.</p>
+      
+      <h3>Des portions adaptées</h3>
+      <p>Pour éviter que les clients ne laissent de la nourriture dans leur assiette, de nombreux restaurants proposent désormais des portions adaptées aux appétits de chacun, voire des demi-portions pour les plus petits mangeurs.</p>
+    `
   },
   {
     id: 3,
@@ -104,5 +130,24 @@ export const pointsOfInterest: PointOfInterest[] = [
     location: [-8.0100, 31.6295] as [number, number]
   }
 ];
+
+// Assign points of interest to blog posts
+blogPosts.forEach(post => {
+  if (post.id === 1) {
+    post.pointsOfInterest = [
+      pointsOfInterest.find(p => p.id === 1)!,
+      pointsOfInterest.find(p => p.id === 3)!
+    ];
+  } else if (post.id === 2) {
+    post.pointsOfInterest = [
+      pointsOfInterest.find(p => p.id === 2)!,
+      pointsOfInterest.find(p => p.id === 4)!
+    ];
+  } else if (post.id === 3) {
+    post.pointsOfInterest = [
+      pointsOfInterest.find(p => p.id === 5)!
+    ];
+  }
+});
 
 export const categories = ["Tous", "Conseils", "Témoignages", "Environnement", "Économie", "Recettes", "Technologie"];

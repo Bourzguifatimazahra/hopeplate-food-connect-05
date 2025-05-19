@@ -9,6 +9,8 @@ export interface BlogPost {
   category: string;
   readTime: string;
   location: string;
+  content?: string;
+  pointsOfInterest?: PointOfInterest[];
 }
 
 export interface PointOfInterest {
