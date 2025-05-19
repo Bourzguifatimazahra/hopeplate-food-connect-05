@@ -14,9 +14,11 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 border-b bg-background/80 backdrop-blur-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to="/main" className="flex items-center gap-2">
-          <div className="bg-lime rounded-full w-8 h-8 flex items-center justify-center">
-            <span className="font-bold text-black">H</span>
-          </div>
+          <img
+            src="/lovable-uploads/328fef81-1031-4394-ba30-a2eef2f006f6.png" 
+            alt="HopEplate Logo"
+            className="h-10 w-10"
+          />
           <span className="font-bold text-xl">HopEplate</span>
         </Link>
 

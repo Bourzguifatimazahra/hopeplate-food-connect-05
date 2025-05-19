@@ -33,7 +33,7 @@ const LoadingPage = () => {
         {/* Logo */}
         <div className="w-40 h-40 relative mb-8">
           <img 
-            src="/lovable-uploads/dd26c2dd-9fdc-4246-83f8-ae7570b09ce7.png" 
+            src="/lovable-uploads/328fef81-1031-4394-ba30-a2eef2f006f6.png" 
             alt="HopEplate Logo" 
             className="w-full h-full object-contain"
           />
