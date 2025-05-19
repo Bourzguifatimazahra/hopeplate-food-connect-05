@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -77,37 +76,37 @@ const blogPosts = [
   },
 ];
 
-// Points d'intérêt pour la carte
+// Points d'intérêt pour la carte - Fixed to use tuples [number, number] instead of arrays
 const pointsOfInterest = [
   {
     id: 1,
     name: "Marché bio de Casablanca",
     description: "Marché hebdomadaire avec produits frais et locaux",
-    location: [-7.6115, 33.5883]
+    location: [-7.6115, 33.5883] as [number, number]
   },
   {
     id: 2,
     name: "Restaurant La Sqala",
     description: "Restaurant éco-responsable à Casablanca",
-    location: [-7.6167, 33.6056]
+    location: [-7.6167, 33.6056] as [number, number]
   },
   {
     id: 3,
     name: "Coopérative agricole d'Agadir",
     description: "Produits frais directement des producteurs",
-    location: [-9.5982, 30.4278]
+    location: [-9.5982, 30.4278] as [number, number]
   },
   {
     id: 4,
     name: "Café Clock",
     description: "Café-restaurant utilisant des ingrédients locaux",
-    location: [-5.0012, 34.0346]
+    location: [-5.0012, 34.0346] as [number, number]
   },
   {
     id: 5,
     name: "Jardin Bio Marrakech",
     description: "Jardin communautaire et éducatif",
-    location: [-8.0100, 31.6295]
+    location: [-8.0100, 31.6295] as [number, number]
   }
 ];
 

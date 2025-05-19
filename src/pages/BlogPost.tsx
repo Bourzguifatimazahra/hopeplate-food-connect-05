@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -46,13 +45,13 @@ const blogPostsData = [
         id: 1,
         name: "Marché bio de Casablanca",
         description: "Marché hebdomadaire avec produits frais et locaux",
-        location: [-7.6115, 33.5883]
+        location: [-7.6115, 33.5883] as [number, number]
       },
       {
         id: 2,
         name: "Coopérative agricole d'Agadir",
         description: "Produits frais directement des producteurs",
-        location: [-9.5982, 30.4278]
+        location: [-9.5982, 30.4278] as [number, number]
       }
     ]
   },
@@ -83,13 +82,13 @@ const blogPostsData = [
         id: 3,
         name: "Restaurant La Sqala",
         description: "Restaurant éco-responsable à Casablanca",
-        location: [-7.6167, 33.6056]
+        location: [-7.6167, 33.6056] as [number, number]
       },
       {
         id: 4,
         name: "Café Clock",
         description: "Café-restaurant utilisant des ingrédients locaux",
-        location: [-5.0012, 34.0346]
+        location: [-5.0012, 34.0346] as [number, number]
       }
     ]
   },
