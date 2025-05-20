@@ -55,7 +55,7 @@ const SignUpForm = () => {
                 <Input
                   id="name"
                   type="text"
-                  placeholder="Jean Dupont"
+                  placeholder="Fatimaezzahra"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
@@ -103,7 +103,7 @@ const SignUpForm = () => {
                 <Input
                   id="restaurantName"
                   type="text"
-                  placeholder="Le Bon Resto"
+                  placeholder="your food"
                   value={restaurantName}
                   onChange={(e) => setRestaurantName(e.target.value)}
                   required
@@ -114,7 +114,7 @@ const SignUpForm = () => {
                 <Input
                   id="address"
                   type="text"
-                  placeholder="123 Rue de Paris, 75001 Paris"
+                  placeholder="123 Rue casablanca"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                   required

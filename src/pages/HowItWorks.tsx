@@ -147,6 +147,7 @@ const HowItWorks = () => {
               <h3 className="text-xl font-medium mb-2">Et si je ne peux pas récupérer ma commande à l'heure prévue ?</h3>
               <p className="text-gray-600">
                 Contactez directement le restaurant pour voir s'il est possible d'adapter l'horaire. Chaque établissement a sa propre politique concernant les retards.
+              
               </p>
             </div>
           </div>

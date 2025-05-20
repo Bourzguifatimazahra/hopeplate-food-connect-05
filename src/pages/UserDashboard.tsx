@@ -7,10 +7,10 @@ import { Heart, MapPin, Star } from "lucide-react";
 const mockOffers = [
   {
     id: 1,
-    title: "Menu complet italien",
+    title: "Menu complet ",
     restaurant: "Pasta Bella",
     originalPrice: 249,
-    discountedPrice: 125,
+    discountedPrice: 99,
     image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1760&q=80",
     distance: "1.2 km",
     rating: 4.8,
@@ -40,9 +40,9 @@ const mockOffers = [
 const mockOrders = [
   {
     id: 1,
-    title: "Menu complet italien",
+    title: "Menu complet ",
     restaurant: "Pasta Bella",
-    price: 125,
+    price: 99,
     date: "2023-06-15",
     status: "Terminé",
     rating: 5,
@@ -79,7 +79,7 @@ const UserDashboard = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold">Bienvenue, Sophie</h1>
+        <h1 className="text-3xl font-bold">Bienvenue, Fatimaezzahra</h1>
         <p className="text-muted-foreground">Trouvez des offres près de vous et réduisez le gaspillage</p>
       </div>
 

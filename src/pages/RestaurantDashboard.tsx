@@ -37,8 +37,8 @@ const mockOffers = [
 const mockOrders = [
   {
     id: 1,
-    customerName: "Marie Dupont",
-    item: "Menu complet italien",
+    customerName: "Hiba",
+    item: "Menu complet ",
     price: 125,
     date: "2023-06-15",
     time: "18:30",
@@ -46,9 +46,9 @@ const mockOrders = [
   },
   {
     id: 2,
-    customerName: "Jean Martin",
+    customerName: "Youssef",
     item: "Menu complet italien",
-    price: 125,
+    price: 25,
     date: "2023-06-15",
     time: "19:00",
     status: "pending",
@@ -57,7 +57,7 @@ const mockOrders = [
     id: 3,
     customerName: "Sophie Bernard",
     item: "Plateau dégustation",
-    price: 199,
+    price: 99,
     date: "2023-06-16",
     time: "12:30",
     status: "confirmed",

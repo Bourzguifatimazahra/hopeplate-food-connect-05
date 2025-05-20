@@ -60,8 +60,8 @@ const Contact = () => {
                 <Phone className="text-lime h-6 w-6 mt-1" />
                 <div>
                   <h3 className="font-semibold mb-1">Téléphone</h3>
-                  <p className="text-gray-600">+33 1 23 45 67 89</p>
-                  <p className="text-gray-600">Du lundi au vendredi, 9h-18h</p>
+                  <p className="text-gray-600">+212 655563404</p>
+                  <p className="text-gray-600">Du lundi au vendredi</p>
                 </div>
               </div>
             </Card>
@@ -71,8 +71,8 @@ const Contact = () => {
                 <MapPin className="text-lime h-6 w-6 mt-1" />
                 <div>
                   <h3 className="font-semibold mb-1">Adresse</h3>
-                  <p className="text-gray-600">123 Avenue de la République</p>
-                  <p className="text-gray-600">75011 Paris, France</p>
+                  <p className="text-gray-600"></p>
+                  <p className="text-gray-600">Maroc</p>
                 </div>
               </div>
             </Card>

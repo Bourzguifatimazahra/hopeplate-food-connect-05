@@ -58,7 +58,7 @@ const MOCK_OFFERS = [
     pickupTime: "21:00 - 22:00",
     distance: 2.5,
     rating: 4.5,
-    category: "Japonais",
+    category: "Sans lactose",
   },
   {
     id: 4,
@@ -70,7 +70,7 @@ const MOCK_OFFERS = [
     pickupTime: "20:30 - 22:00",
     distance: 1.8,
     rating: 4.3,
-    category: "Italien",
+    category: "Vegan",
   },
   {
     id: 5,
@@ -82,7 +82,7 @@ const MOCK_OFFERS = [
     pickupTime: "16:00 - 17:30",
     distance: 0.5,
     rating: 4.2,
-    category: "Sandwich",
+    category: "Sans gluten",
   },
   {
     id: 6,
@@ -94,7 +94,7 @@ const MOCK_OFFERS = [
     pickupTime: "19:00 - 20:30",
     distance: 1.5,
     rating: 4.6,
-    category: "Français",
+    category: "Petit déjeuner",
   },
   {
     id: 7,
@@ -106,7 +106,7 @@ const MOCK_OFFERS = [
     pickupTime: "19:30 - 20:30",
     distance: 2.1,
     rating: 4.4,
-    category: "Hawaïen",
+    category: "Vegan",
   },
   {
     id: 8,
@@ -118,11 +118,14 @@ const MOCK_OFFERS = [
     pickupTime: "20:00 - 21:30",
     distance: 3.0,
     rating: 4.8,
-    category: "Thaïlandais",
+    category:"Fait maison",
   },
 ];
 
-const categories = ["Tout", "Végétarien", "Pâtisserie", "Japonais", "Italien", "Sandwich", "Français", "Hawaïen", "Thaïlandais"];
+const categories = ["Tout", "Végétarien", "Pâtisserie","Desserts","Sans gluten","Vegan","Sans lactose",
+
+"Petit déjeuner","Fait maison"];
+
 const sortOptions = ["Recommandés", "Prix croissant", "Prix décroissant", "Distance", "Note"];
 
 const Offers = () => {
@@ -179,10 +182,10 @@ const Offers = () => {
       </div>
 
       <div className="mb-6">
-        <h3 className="text-lg font-medium mb-2">Prix maximum: {maxPrice}€</h3>
+        <h3 className="text-lg font-medium mb-2">Prix maximum: {maxPrice}DH</h3>
         <Slider 
           defaultValue={[maxPrice]} 
-          max={30} 
+          max={100} 
           step={1} 
           onValueChange={(value) => setMaxPrice(value[0])} 
         />
@@ -305,8 +308,8 @@ const Offers = () => {
                       
                       <div className="flex items-center justify-between">
                         <div>
-                          <span className="text-lg font-bold">{offer.discountedPrice.toFixed(2)}€</span>
-                          <span className="text-gray-500 line-through ml-2">{offer.originalPrice.toFixed(2)}€</span>
+                          <span className="text-lg font-bold">{offer.discountedPrice.toFixed(2)}DH</span>
+                          <span className="text-gray-500 line-through ml-2">{offer.originalPrice.toFixed(2)}DH</span>
                         </div>
                         <div className="flex items-center">
                           <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">

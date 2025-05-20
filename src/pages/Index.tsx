@@ -17,6 +17,7 @@ const Index = () => {
       <Cta />
     </div>
   );
+  
 };
 
 export default Index;
