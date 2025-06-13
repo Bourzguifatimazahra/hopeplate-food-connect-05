@@ -35,7 +35,7 @@ const Hero = () => {
           </Button>
           <Button
             variant="outline"
-            className="border-white/30 hover:border-white text-white px-6 py-6 text-lg"
+            className="bg-lime hover:bg-lime-hover text-black font-medium px-6 py-6 text-lg"
             onClick={() => navigate("/how-it-works")}
           >
             Comment ça marche
