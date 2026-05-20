@@ -15,7 +15,7 @@ const Navbar = () => {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to="/main" className="flex items-center gap-2">
           <img
-            src="/lovable-uploads/328fef81-1031-4394-ba30-a2eef2f006f6.png" 
+            src="/hopeplatelogo.png" 
             alt="HopEplate Logo"
             className="h-10 w-10"
           />
@@ -46,6 +46,9 @@ const Navbar = () => {
                 </Link>
                 <Link to="/contact" className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>
                   Contact
+                </Link>
+                <Link to="/faq" className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>
+                  FAQ
                 </Link>
                 <div className="flex flex-col gap-2 mt-4">
                   <Button 
@@ -87,6 +90,9 @@ const Navbar = () => {
               </Link>
               <Link to="/contact" className="text-sm font-medium transition-colors hover:text-lime">
                 Contact
+              </Link>
+              <Link to="/faq" className="text-sm font-medium transition-colors hover:text-lime">
+                FAQ
               </Link>
             </nav>
             <div className="flex items-center gap-2">

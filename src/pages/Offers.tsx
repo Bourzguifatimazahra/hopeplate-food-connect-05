@@ -120,6 +120,18 @@ const MOCK_OFFERS = [
     rating: 4.8,
     category:"Fait maison",
   },
+  {
+    id: 9,
+    name: "Box déjeuner healthy",
+    restaurant: "Green Garden",
+    originalPrice: 159.00,
+    discountedPrice: 79.00,
+    image: "/Box déjeuner healthy.png",
+    pickupTime: "11:30 - 14:00",
+    distance: 0.8,
+    rating: 4.7,
+    category: "Végétarien",
+  },
 ];
 
 const categories = ["Tout", "Végétarien", "Pâtisserie","Desserts","Sans gluten","Vegan","Sans lactose",
@@ -133,7 +145,7 @@ const Offers = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Tout");
   const [selectedSort, setSelectedSort] = useState("Recommandés");
-  const [maxPrice, setMaxPrice] = useState(20);
+  const [maxPrice, setMaxPrice] = useState(100);
   const [maxDistance, setMaxDistance] = useState(5);
 
   const filteredOffers = MOCK_OFFERS.filter(offer => 

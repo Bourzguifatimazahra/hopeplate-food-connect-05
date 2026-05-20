@@ -8,9 +8,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="bg-lime rounded-full w-8 h-8 flex items-center justify-center">
-                <span className="font-bold text-black">H</span>
-              </div>
+              <img
+                src="/hopeplatelogo.png"
+                alt="HopEplate Logo"
+                className="h-8 w-8"
+              />
               <span className="font-bold text-xl">HopEplate</span>
             </Link>
             <p className="text-sm text-gray-300 mb-4">
@@ -94,8 +96,8 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-white/10 mt-12 pt-8 text-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} HopEplate. Tous droits réservés.</p>
-        </div>
+                  <p>&copy; 2026 HopEplate. Tous droits réservés.</p>
+                </div>
       </div>
     </footer>
   );

@@ -1,8 +1,8 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Heart, MapPin, Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const mockOffers = [
   {
@@ -76,6 +76,16 @@ const mockFavorites = [
 ];
 
 const UserDashboard = () => {
+  const navigate = useNavigate();
+
+  const handleViewProfile = (restaurantName: string) => {
+    navigate(`/offers?restaurant=${encodeURIComponent(restaurantName)}`);
+  };
+
+  const handleViewOffers = () => {
+    navigate("/offers");
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
@@ -209,10 +219,17 @@ const UserDashboard = () => {
                     </div>
                   </div>
                   <div className="mt-4">
-                    <Button variant="outline" className="mr-2">
+                    <Button 
+                      variant="outline" 
+                      className="mr-2"
+                      onClick={() => handleViewProfile(favorite.name)}
+                    >
                       Voir le profil
                     </Button>
-                    <Button className="bg-lime hover:bg-lime-hover text-black">
+                    <Button 
+                      className="bg-lime hover:bg-lime-hover text-black"
+                      onClick={handleViewOffers}
+                    >
                       Voir les offres
                     </Button>
                   </div>

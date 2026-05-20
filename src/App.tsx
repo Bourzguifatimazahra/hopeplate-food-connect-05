@@ -12,6 +12,7 @@ import UserDashboard from "./pages/UserDashboard";
 import RestaurantDashboard from "./pages/RestaurantDashboard";
 import HowItWorks from "./pages/HowItWorks";
 import Contact from "./pages/Contact";
+import FAQ from "./pages/FAQ";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Offers from "./pages/Offers";
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/faq" element={<FAQ />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/offers" element={<Offers />} />

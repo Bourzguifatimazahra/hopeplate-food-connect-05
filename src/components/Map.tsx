@@ -1,7 +1,5 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Navigation } from 'lucide-react';
@@ -14,16 +12,16 @@ interface MapProps {
     description: string;
     location: [number, number]; // [longitude, latitude]
   }>;
-  onSortByDistance?: (sortedPoints: typeof pointsOfInterest) => void;
+  onSortByDistance?: (sortedPoints: MapProps['pointsOfInterest']) => void;
 }
 
 const Map = ({ className, pointsOfInterest = [], onSortByDistance }: MapProps) => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
-  const [mapboxToken, setMapboxToken] = useState<string>("");
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
   const [isLocating, setIsLocating] = useState(false);
   const [locationError, setLocationError] = useState("");
+  const mapboxToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
   // Request user's location
   const requestUserLocation = () => {
@@ -164,20 +162,7 @@ const Map = ({ className, pointsOfInterest = [], onSortByDistance }: MapProps) =
 
   return (
     <Card className={`relative overflow-hidden ${className}`}>
-      {!mapboxToken || mapboxToken.trim() === "" ? (
-        <div className="p-4">
-          <p className="mb-2">Entrez votre token Mapbox pour afficher la carte:</p>
-          <input
-            type="text" 
-            className="w-full p-2 border border-gray-300 rounded"
-            placeholder="Mapbox Access Token" 
-            onChange={(e) => setMapboxToken(e.target.value)}
-          />
-          <p className="mt-2 text-xs text-gray-500">
-            Obtenez un token sur <a href="https://www.mapbox.com" target="_blank" rel="noreferrer" className="text-lime underline">mapbox.com</a>
-          </p>
-        </div>
-      ) : (
+      {mapboxToken && mapboxToken.trim() !== "" ? (
         <div className="relative">
           <div 
             ref={mapContainer} 
@@ -200,6 +185,13 @@ const Map = ({ className, pointsOfInterest = [], onSortByDistance }: MapProps) =
               {locationError}
             </div>
           )}
+        </div>
+      ) : (
+        <div className="p-4">
+          <p className="mb-2">Configurez votre token Mapbox dans le fichier .env pour afficher la carte.</p>
+          <p className="text-xs text-gray-500">
+            Ajoutez VITE_MAPBOX_TOKEN=votre_token dans le fichier .env
+          </p>
         </div>
       )}
     </Card>
